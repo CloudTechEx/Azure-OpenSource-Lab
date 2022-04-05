@@ -55,7 +55,7 @@ set ARM_SUBSCRIPTION_ID=your_subscription_id
 set ARM_CLIENT_ID=your_appId
 set ARM_CLIENT_SECRET=your_password
 set ARM_TENANT_ID=your_tenant_id	
-set	ARM_ENVIRONMENT=public
+set ARM_ENVIRONMENT=public
 ```
 
 ### 3. Create 1st .tf file
