@@ -1,6 +1,6 @@
 ## Terraform HandsOn Lab
 
-## ++Agenda++
+## ***Agenda***
 
 ***1. Prepare Tools & Setup***  
 ***2. Authentication To Azure***  
