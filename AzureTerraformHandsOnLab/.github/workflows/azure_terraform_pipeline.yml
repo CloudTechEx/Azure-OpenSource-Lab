@@ -1,0 +1,31 @@
+name: Azure Terraform Pipeline
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    working-directory: examples
+jobs:
+  build:
+    name: Build
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      VAR_FILE: "variable-dev.tfvars"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Terraform checkout
+      uses: actions/checkout@v2 
+
+    - name: Terraform version
+      run: terraform version
+   
+    - name: Terraform init
+      run: terraform init
+      
+    - name: Terraform plan
+      run: terraform plan -var-file="${{ env.VAR_FILE }}" -no-color
+
+    - name: Terraform apply
+      run: terraform apply -auto-approve -var-file="${{ env.VAR_FILE }}"    
